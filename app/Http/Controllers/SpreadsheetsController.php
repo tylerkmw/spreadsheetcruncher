@@ -130,7 +130,7 @@ class SpreadsheetsController extends Controller
                 $results[] = $result;
             }
         }
-
+        dd($results);
         return view('results', ['results' => $results]);
     }
 }
