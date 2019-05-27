@@ -94,8 +94,16 @@ class SpreadsheetsController extends Controller
             // Load in the first line of the spreadsheet
             $filearray = fgetcsv($file);
             $name = $filearray[1];
-
-            $result = [$name];
+            $num1 = null;
+            $num2 = null;
+            $num3 = null;
+            $num4 = null;
+            $num5 = null;
+            $num6 = null;
+            $num7 = null;
+            $num8 = null;
+            $num9 = null;
+            $num10 = null;
 
             while (!feof($file)) {
                 $filearray = fgetcsv($file);
@@ -103,33 +111,32 @@ class SpreadsheetsController extends Controller
                 $header = strtolower($header);
 
                 if ($header == 'tsr revenues') {
-                    $result[] = $filearray[1];
-                    $result[] = $filearray[8];
+                    $num1 = $filearray[1];
+                    $num2 = $filearray[8];
                 }
 
                 if ($header == 'total nf mgn % of nf sales') {
-                    $result[] = $filearray[1];
-                    $result[] = $filearray[5];
+                    $num3 = $filearray[1];
+                    $num4 = $filearray[5];
                 }
 
-                if ($header == 'non-labor exp $ of nf sales') {
-                    $result[] = $filearray[1];
-                    $result[] = $filearray[5];
+                if ($header == 'non-labor exp % of nf sales') {
+                    $num5 = $filearray[1];
+                    $num6 = $filearray[5];
                 }
 
                 if ($header == "labor % of nf sales") {
-                    $result[] = $filearray[1];
-                    $result[] = $filearray[5];
+                    $num7 = $filearray[1];
+                    $num8 = $filearray[5];
                 }
 
                 if ($header == 'ebitda') {
-                    $result[] = $filearray[1];
-                    $result[] = $filearray[8];
+                    $num9 = $filearray[1];
+                    $num10 = $filearray[8];
                 }
             }
-            $results[] = $result;
+            $results[] = [$name, $num1, $num2, $num3, $num4, $num5, $num6, $num7, $num8, $num9, $num10];
         }
-        dd($results);
         return view('results', ['results' => $results]);
     }
 }
