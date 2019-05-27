@@ -95,37 +95,39 @@ class SpreadsheetsController extends Controller
             $filearray = fgetcsv($file);
             $name = $filearray[1];
 
+            $result = [$name];
+
             while (!feof($file)) {
                 $filearray = fgetcsv($file);
                 $header = trim($filearray[0]);
                 $header = strtolower($header);
 
                 if ($header == 'tsr revenues') {
-                    $num1 = $filearray[1];
-                    $num2 = $filearray[8];
+                    $result[] = $filearray[1];
+                    $result[] = $filearray[8];
                 }
 
                 if ($header == 'total nf mgn & of nf sales') {
-                    $num3 = $filearray[1];
-                    $num4 = $filearray[5];
+                    $result[] = $filearray[1];
+                    $result[] = $filearray[5];
                 }
 
                 if ($header == 'non-labor exp $ of nf sales') {
-                    $num5 = $filearray[1];
-                    $num6 = $filearray[5];
+                    $result[] = $filearray[1];
+                    $result[] = $filearray[5];
                 }
 
                 if ($header == 'labor % of nf sales') {
-                    $num7 = $filearray[1];
-                    $num8 = $filearray[5];
+                    $result[] = $filearray[1];
+                    $result[] = $filearray[5];
                 }
 
                 if ($header == 'ebitda') {
-                    $num9 = $filearray[1];
-                    $num10 = $filearray[8];
+                    $result[] = $filearray[1];
+                    $result[] = $filearray[8];
                 }
 
-                $results[] = [$name, $num1, $num2, $num3, $num4, $num5, $num6, $num7, $num8, $num9, $num10];
+                $results[] = $result;
             }
         }
 
