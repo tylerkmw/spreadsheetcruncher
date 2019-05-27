@@ -107,7 +107,7 @@ class SpreadsheetsController extends Controller
                     $result[] = $filearray[8];
                 }
 
-                if ($header == 'total nf mgn & of nf sales') {
+                if ($header == 'total nf mgn % of nf sales') {
                     $result[] = $filearray[1];
                     $result[] = $filearray[5];
                 }
@@ -117,7 +117,7 @@ class SpreadsheetsController extends Controller
                     $result[] = $filearray[5];
                 }
 
-                if ($header == 'labor % of nf sales') {
+                if ($header == "labor % of nf sales") {
                     $result[] = $filearray[1];
                     $result[] = $filearray[5];
                 }
@@ -129,7 +129,6 @@ class SpreadsheetsController extends Controller
             }
             $results[] = $result;
         }
-        dd($results);
         return view('results', ['results' => $results]);
     }
 }
