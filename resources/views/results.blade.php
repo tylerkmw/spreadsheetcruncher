@@ -49,6 +49,7 @@
                         <td>{{ $result[9] }}</td>
                         <td>{{ $result[10] }}</td>
                     </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
