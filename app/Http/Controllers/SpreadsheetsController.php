@@ -111,8 +111,8 @@ class SpreadsheetsController extends Controller
                 $header = strtolower($header);
 
                 if ($header == 'tsr revenues') {
-                    $num1 = $filearray[1];
-                    $num2 = $filearray[8];
+                    $num1 = round($filearray[1]);
+                    $num2 = round($filearray[8]);
                 }
 
                 if ($header == 'total nf mgn % of nf sales') {
@@ -131,8 +131,8 @@ class SpreadsheetsController extends Controller
                 }
 
                 if ($header == 'ebitda') {
-                    $num9 = $filearray[1];
-                    $num10 = $filearray[8];
+                    $num9 = round($filearray[1]);
+                    $num10 = round($filearray[8]);
                 }
             }
             $results[] = [$name, $num1, $num2, $num3, $num4, $num5, $num6, $num7, $num8, $num9, $num10];
