@@ -126,11 +126,9 @@ class SpreadsheetsController extends Controller
                     $result[] = $filearray[1];
                     $result[] = $filearray[8];
                 }
-
-                $results[] = $result;
             }
+            $results[] = $result;
         }
-        dd($results);
         return view('results', ['results' => $results]);
     }
 }
